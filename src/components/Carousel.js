@@ -6,7 +6,7 @@ import {
   faArrowRightLong,
 } from "@fortawesome/free-solid-svg-icons";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 export default function Carousel({ carousel, data }) {
   const [index, setIndex] = useState(0);

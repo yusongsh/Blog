@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 export default function Featured({ featured }) {
-  console.log(featured);
+  // console.log(featured);
 
   return (
     <>
@@ -22,9 +22,9 @@ export default function Featured({ featured }) {
                     className="object-cover w-screen h-auto"
                   />
                   <h3 className="font-medium py-4">{feature.title}</h3>
-                  <p className="text-xs font-light">
+                  <div className="text-xs font-light">
                     {renderRichText(feature.intro)}
-                  </p>
+                  </div>
                   <button className="pt-4 text-sm hover:underline hover:underline-offset-4 hover:text-black">
                     read more
                   </button>

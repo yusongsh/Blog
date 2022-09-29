@@ -10,7 +10,7 @@ export default function IndexPage({ data }) {
   const homeDestination = data.allContentfulHomepageDestination.nodes;
   const featured = data.allContentfulFeatured.nodes;
 
-  console.log(`here is the data`, featured);
+  // console.log(`here is the data`, featured);
   return (
     <Layout pageTitle={"Home Page"}>
       <section>
@@ -23,6 +23,7 @@ export default function IndexPage({ data }) {
           </div>
         </div>
       </section>
+
       <section className="pb-32">
         <div className="flex flex-col">
           <Carousel carousel={heroInfo} />
@@ -53,9 +54,9 @@ export default function IndexPage({ data }) {
             })}
           </div>
         </div>
-        <section className="col-span-1">
+        <div className="col-span-1">
           <Featured featured={featured} />
-        </section>
+        </div>
       </section>
     </Layout>
   );

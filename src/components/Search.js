@@ -17,7 +17,6 @@ export default function Serach({ homeDestination }) {
   return (
     <>
       <div>
-        <label className="sr-only">Search</label>
         <div className="relative w-full">
           <div className="flex absolute inset-y-0 right-4 items-center pl-3 pointer-events-none">
             <svg
@@ -34,15 +33,17 @@ export default function Serach({ homeDestination }) {
               ></path>
             </svg>
           </div>
-          <input
-            type="text"
-            id="simple-search"
-            name="search"
-            className="bg-gray-50/0 border border-main/40 text-gray-900 text-sm rounded-full block w-56 pl-8 p-2.5 z-20"
-            placeholder=""
-            required
-            onChange={handleFilter}
-          />
+          <form>
+            <input
+              type="text"
+              id="simple-search"
+              name="search"
+              className="bg-gray-50/0 border border-main/40 text-gray-900 text-sm rounded-full block w-56 pl-8 p-2.5 z-20"
+              placeholder=""
+              required
+              onChange={handleFilter}
+            />
+          </form>
         </div>
         {filterData.length !== 0 && (
           <div className="absolute py-4 z-20 bg-cream rounded-lg shadow-2xl mt-2 w-56 h-48 overflow-y-scroll">

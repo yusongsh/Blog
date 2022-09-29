@@ -48,7 +48,7 @@ export default function blogPost({ data }) {
           {featurePhoto && (
             <img
               src={featurePhoto.url}
-              alt="featured photo"
+              alt="featured"
               className="w-full pb-8"
             />
           )}
