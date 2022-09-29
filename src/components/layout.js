@@ -24,7 +24,7 @@ const Layout = ({ pageTitle, children, homeDestination }) => {
                   <Link to="/destination">Destination</Link>
                 </p>
                 <p className="uppercase  hover:text-black px-6 text-sm  whitespace-nowrap">
-                  <Link to="/tips">Travrl tips</Link>
+                  <Link to="/traveltips">Travrl tips</Link>
                 </p>
                 <p className="uppercase  hover:text-black px-6 text-sm ">
                   <Link to="/about">About</Link>
@@ -32,7 +32,7 @@ const Layout = ({ pageTitle, children, homeDestination }) => {
               </div>
             </div>
           </div>
-          <div className="col-span-6">
+          <div className="col-span-6 h-full">
             <main>{children}</main>
           </div>
           <div className="col-span-1 pt-38 h-screen top-0 sticky">
@@ -64,7 +64,7 @@ const Layout = ({ pageTitle, children, homeDestination }) => {
           </div>
         </div>
       </div>
-      <div className="bg-creambg text-main py-20">
+      <div className="bg-creambg text-main py-20 static">
         <Footer />
       </div>
     </>

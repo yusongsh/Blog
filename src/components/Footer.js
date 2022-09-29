@@ -19,7 +19,7 @@ export default function Footer() {
               <Link to="/destination">Destination</Link>
             </p>
             <p className="uppercase  hover:text-black px-6  whitespace-nowrap">
-              <Link to="/tips">Travrl tips</Link>
+              <Link to="/traveltips">Travrl tips</Link>
             </p>
             <p className="uppercase  hover:text-black px-6 ">
               <Link to="/about">About</Link>
