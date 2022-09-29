@@ -15,13 +15,13 @@ export default function Featured({ featured }) {
           {featured.map((feature, idx) => {
             return (
               <div key={idx} className="pb-12">
-                <img
-                  src={feature.previewPhoto.url}
-                  alt={feature.title}
-                  className="object-cover w-screen h-auto"
-                />
-                <h3 className="font-medium py-4">{feature.title}</h3>
                 <Link to={`/${feature.slug}`}>
+                  <img
+                    src={feature.previewPhoto.url}
+                    alt={feature.title}
+                    className="object-cover w-screen h-auto"
+                  />
+                  <h3 className="font-medium py-4">{feature.title}</h3>
                   <p className="text-xs font-light">
                     {renderRichText(feature.intro)}
                   </p>

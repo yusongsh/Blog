@@ -18,10 +18,13 @@ export default function featuredPost({ data }) {
             </Link>
           </div>
         </section>
+
         <section>
-          <div className="uppercase text-sm font-semibold">Featured</div>
+          <h4 className="uppercase text-xs font-medium text-white bg-main px-4 py-2 rounded-full w-min">
+            Featured
+          </h4>
           <div className="py-8 text-4xl font-serif">{title}</div>
-          <div>{renderRichText(intro)}</div>
+          <div className="pb-8">{renderRichText(intro)}</div>
           <div>
             <img src={previewPhoto.url} alt={title} />
           </div>
