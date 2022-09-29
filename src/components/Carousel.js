@@ -24,7 +24,7 @@ export default function Carousel({ carousel, data }) {
     },
   };
 
-  console.log(carousel);
+  // console.log(carousel);
   return (
     <>
       <section className="flex flex-col justify-center items-end">
