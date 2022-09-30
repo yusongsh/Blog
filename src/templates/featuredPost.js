@@ -34,6 +34,11 @@ export default function featuredPost({ data }) {
   );
 }
 
+export const Head = ({ data }) => {
+  const title = data.contentfulFeatured;
+  <title>{title}</title>;
+};
+
 export const pageQuery = graphql`
   query featuredPostQuery($featuredPostId: String!) {
     contentfulFeatured(id: { eq: $featuredPostId }) {

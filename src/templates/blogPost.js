@@ -44,30 +44,34 @@ export default function blogPost({ data }) {
           </div>
         </section>
 
-        <div className="flex flex-col">
-          {featurePhoto && (
-            <img
-              src={featurePhoto.url}
-              alt="featured"
-              className="w-full pb-8"
-            />
-          )}
-          {title && (
-            <p className="text-center font-serif text-4xl pt-16 pb-8">
-              {title}
-            </p>
-          )}
-          {timeStamp && (
-            <p className="text-sm pb-8 text-center font-semibold">
-              {timeStamp}
-            </p>
-          )}
-          {featurePost ? (
-            <div>{renderRichText(featurePost, options)}</div>
-          ) : (
-            <p className="py-8">🫣 something went wrong, try some other pages</p>
-          )}
-        </div>
+        <section>
+          <div className="flex flex-col">
+            {featurePhoto && (
+              <img
+                src={featurePhoto.url}
+                alt="featured"
+                className="w-full pb-8"
+              />
+            )}
+            {title && (
+              <p className="text-center font-serif text-4xl pt-16 pb-8">
+                {title}
+              </p>
+            )}
+            {timeStamp && (
+              <p className="text-sm pb-8 text-center font-semibold">
+                {timeStamp}
+              </p>
+            )}
+            {featurePost ? (
+              <div>{renderRichText(featurePost, options)}</div>
+            ) : (
+              <p className="py-8">
+                🫣 something went wrong, try some other pages
+              </p>
+            )}
+          </div>
+        </section>
       </Layout>
     </>
   );

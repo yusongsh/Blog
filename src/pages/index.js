@@ -8,9 +8,10 @@ import Featured from "../components/Featured";
 export default function IndexPage({ data }) {
   const heroInfo = data.allContentfulHomeHero.nodes;
   const homeDestination = data.allContentfulHomepageDestination.nodes;
+  const topDestinations = data.allContentfulDestinations.nodes;
   const featured = data.allContentfulFeatured.nodes;
 
-  // console.log(`here is the data`, featured);
+  console.log(`here is the data`, homeDestination, featured);
   return (
     <Layout pageTitle={"Home Page"}>
       <section>
@@ -18,8 +19,12 @@ export default function IndexPage({ data }) {
           <Link to="/">
             <h1 className="text-4xl font-serif font-semibold">Travel Blog</h1>
           </Link>
-          <div className="flex items-center">
-            <Search homeDestination={homeDestination} />
+          <div className="hidden md:flex md:items-center">
+            <Search
+              homeDestination={homeDestination}
+              featured={featured}
+              topDestinations={topDestinations}
+            />
           </div>
         </div>
       </section>
@@ -80,15 +85,6 @@ export const homePageQuery = graphql`
     }
     allContentfulHomepageDestination {
       nodes {
-        title
-        featurePhoto {
-          url
-        }
-        slug
-      }
-    }
-    allContentfulHomepageDestination {
-      nodes {
         slug
         id
         title
@@ -106,6 +102,15 @@ export const homePageQuery = graphql`
         }
         intro {
           raw
+        }
+      }
+    }
+    allContentfulDestinations {
+      nodes {
+        slug
+        title
+        previewPhoto {
+          url
         }
       }
     }

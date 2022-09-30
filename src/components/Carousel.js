@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS } from "@contentful/rich-text-types";
+import { Link } from "gatsby";
 
 export default function Carousel({ carousel, data }) {
   const [index, setIndex] = useState(0);
@@ -32,26 +33,28 @@ export default function Carousel({ carousel, data }) {
           {carousel.map((carousel, idx) => {
             return (
               <div className="" key={idx}>
-                {idx === index && (
-                  <div className="relative w-full flex flex-col items-center">
-                    <img
-                      src={carousel.photo.url}
-                      alt={carousel.title}
-                      className="object-cover w-screen h-auto"
-                    />
-                    <div className="absolute -bottom-24 w-3/4 flex flex-col bg-creambg py-8 px-12">
-                      <h5 className="text-xs font-semibold">
-                        {carousel.datePosted}
-                      </h5>
-                      <h3 className="text-2xl uppercase py-3">
-                        {carousel.title}
-                      </h3>
-                      {carousel.intro && (
-                        <span>{renderRichText(carousel.intro, options)}</span>
-                      )}
+                <Link to="/cherry">
+                  {idx === index && (
+                    <div className="relative w-full flex flex-col items-center">
+                      <img
+                        src={carousel.photo.url}
+                        alt={carousel.title}
+                        className="object-cover w-screen h-auto"
+                      />
+                      <div className="absolute -bottom-24 w-3/4 flex flex-col bg-creambg py-8 px-12">
+                        <h5 className="text-xs font-semibold">
+                          {carousel.datePosted}
+                        </h5>
+                        <h3 className="text-2xl uppercase py-3">
+                          {carousel.title}
+                        </h3>
+                        {carousel.intro && (
+                          <span>{renderRichText(carousel.intro, options)}</span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </Link>
               </div>
             );
           })}

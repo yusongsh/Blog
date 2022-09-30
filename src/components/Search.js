@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 
-export default function Serach({ homeDestination }) {
-  // console.log(`search data`, homeDestination);
+export default function Serach({ homeDestination, featured, topDestinations }) {
   const [filterData, setFilterData] = useState([]);
 
   const handleFilter = (e) => {
     const searchBlog = e.target.value;
-    const newFilter = homeDestination.filter((value) => {
+    const data = homeDestination.concat(featured, topDestinations);
+    const newFilter = data.filter((value) => {
       return value.title.toLowerCase().includes(searchBlog.toLowerCase());
     });
     setFilterData(newFilter);
   };
-  // console.log(filterData);
+  // console.log(filterData);'
 
   return (
     <>
@@ -49,17 +49,25 @@ export default function Serach({ homeDestination }) {
           <div className="absolute py-4 z-20 bg-cream rounded-lg shadow-2xl mt-2 w-56 h-48 overflow-y-scroll">
             {filterData.map((destination, idx) => {
               return (
-                <Link to={`/${destination.slug}`}>
+                <Link to={`/${destination.slug}`} key={idx}>
                   <div
                     className="w-full flex flex-row justify-between items-center px-6 py-4 bg-cream hover:bg-creambg"
                     key={idx}
                   >
                     <h3 className="text-xs pr-3">{destination.title}</h3>
-                    <img
-                      src={destination.featurePhoto.url}
-                      alt="thumbnail"
-                      className="object-cover w-8 h-8"
-                    />
+                    {destination.featurePhoto ? (
+                      <img
+                        src={destination.featurePhoto.url}
+                        alt="thumbnail"
+                        className="object-cover w-8 h-8"
+                      />
+                    ) : (
+                      <img
+                        src={destination.previewPhoto.url}
+                        alt="thumbnail"
+                        className="object-cover w-8 h-8"
+                      />
+                    )}
                   </div>
                 </Link>
               );
