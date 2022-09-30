@@ -7,6 +7,10 @@ const contentfulConfig = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 };
 
+if (process.env.CONTENTFUL_HOST) {
+  contentfulConfig.host = process.env.CONTENTFUL_HOST;
+}
+
 const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
