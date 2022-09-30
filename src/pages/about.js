@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import { Link, graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import Nav from "../components/Nav";
 
 export default function about({ data }) {
   const cameraBag = data.contentfulCameraBag;
@@ -12,20 +13,14 @@ export default function about({ data }) {
   return (
     <>
       <Layout>
-        <section>
-          <div className="flex flex-row justify-between pt-16 pb-12">
-            <Link to="/">
-              <h1 className="text-4xl font-serif font-semibold">Travel Blog</h1>
-            </Link>
-          </div>
-        </section>
+        <Nav />
 
         <section>
-          <div className="grid grid-cols-5 gap-16 w-full h-auto text-blue pb-32">
-            <div className="col-span-2">
+          <div className="flex flex-col-reverse md:grid md:grid-cols-5 md:gap-16 w-full h-auto text-blue pb-16 md:pb-32">
+            <div className="md:col-span-2">
               <LeftSection cameraBag={cameraBag} about={about} />
             </div>
-            <div className="col-span-3">
+            <div className="md:col-span-3 mb-16 md:mb-0">
               <RightSection about={about} />
             </div>
           </div>
@@ -39,11 +34,11 @@ const LeftSection = ({ cameraBag, about }) => {
   return (
     <>
       <div>
-        <div className="flex justify-center items-center">
+        <div className="flex md:justify-center items-center">
           <img
             src={about.profileMain.url}
             alt={about.title}
-            className="rounded-full w-2/3 h-2/3"
+            className="rounded-full w-1/3 h-1/3 md:w-2/3 md:h-2/3"
           />
         </div>
         <h2 className="font-serif text-medium text-3xl capitalize pt-16 pb-8">

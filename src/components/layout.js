@@ -18,7 +18,7 @@ export default function Layout({ pageTitle, children, homeDestination }) {
           <div className="col-span-6 h-full pb-32 ">
             <main>{children}</main>
           </div>
-          <div className="hidden md:block md:col-span-1 pt-38 h-screen top-0 sticky ">
+          <div className="hidden md:block md:col-span-1 pt-38 h-screen top-0 sticky">
             <div className="hidden md:block ">
               <div className="flex flex-col-reverse justify-start items-center">
                 <div className="flex flex-col gap-5">
@@ -67,7 +67,7 @@ const Nav = () => {
               <Link to="/about">About</Link>
             </p>
             <p className="uppercase  hover:text-black px-6 text-sm  whitespace-nowrap">
-              Subscribe
+              <Link to="subscribe">Subscribe</Link>
             </p>
           </div>
         </div>

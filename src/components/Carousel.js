@@ -20,7 +20,7 @@ export default function Carousel({ carousel, data }) {
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className="text-sm">{children}</p>
+        <p className="font-light text-sm md:font-normal">{children}</p>
       ),
     },
   };
@@ -29,7 +29,7 @@ export default function Carousel({ carousel, data }) {
   return (
     <>
       <section className="flex flex-col justify-center items-end">
-        <div className="object-cover mb-16">
+        <div className="object-cover md:mb-16">
           {carousel.map((carousel, idx) => {
             return (
               <div className="" key={idx}>
@@ -41,11 +41,11 @@ export default function Carousel({ carousel, data }) {
                         alt={carousel.title}
                         className="object-cover w-screen h-auto"
                       />
-                      <div className="absolute -bottom-24 w-3/4 flex flex-col bg-creambg py-8 px-12">
+                      <div className="md:absolute md:-bottom-36 lg:-bottom-24 md:w-3/4 flex flex-col bg-creambg py-6 px-6 md:py-8 md:px-12">
                         <h5 className="text-xs font-semibold">
                           {carousel.datePosted}
                         </h5>
-                        <h3 className="text-2xl uppercase py-3">
+                        <h3 className="text-2xl md:text-3xl uppercase py-4 md:py-6">
                           {carousel.title}
                         </h3>
                         {carousel.intro && (
@@ -59,7 +59,7 @@ export default function Carousel({ carousel, data }) {
             );
           })}
         </div>
-        <div className="flex flex-row items-center gap-8">
+        <div className="hidden lg:flex flex-row items-center gap-8">
           <div className="flex pointer z-10">
             <FontAwesomeIcon
               onClick={handleNext}

@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import { Link, graphql } from "gatsby";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import Nav from "../components/Nav";
 
 export default function cherry({ data }) {
   const { blogPost, slug, thumbnail, timeStamp, title } =
@@ -11,13 +12,7 @@ export default function cherry({ data }) {
 
   return (
     <Layout>
-      <section>
-        <div className="flex flex-row justify-between pt-16 pb-12">
-          <Link to="/">
-            <h1 className="text-4xl font-serif font-semibold">Travel Blog</h1>
-          </Link>
-        </div>
-      </section>
+      <Nav />
       <BlogPost data={data} />
     </Layout>
   );
@@ -34,28 +29,28 @@ const BlogPost = ({ data }) => {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => {
         return (
-          <div className="px-16">
+          <div className="px-6 md:px-16">
             <p className="py-4">{children}</p>
           </div>
         );
       },
       [BLOCKS.HEADING_1]: (node, children) => {
         return (
-          <div className="px-16 py-8">
+          <div className="px-6 md:px-16 py-8">
             <h3 className="text-4xl font-semibold">{children}</h3>
           </div>
         );
       },
       [BLOCKS.HEADING_3]: (node, children) => {
         return (
-          <div className="px-16">
+          <div className="px-6 md:px-16">
             <h4 className="pt-8 pb-4 text-2xl">{children}</h4>
           </div>
         );
       },
       [BLOCKS.HEADING_5]: (node, children) => {
         return (
-          <div className="px-16">
+          <div className="px-6 md:px-16">
             <h4 className="pt-8 pb-4 text-lg font-medium">{children}</h4>
           </div>
         );
@@ -77,7 +72,7 @@ const BlogPost = ({ data }) => {
     <>
       <div className="bg-creambg">
         <img src={thumbnail.url} alt={slug} className="w-full" />
-        <h5 className="px-16 pt-16 text-sm font-medium">{timeStamp}</h5>
+        <h5 className="px-6 md:px-16 pt-16 text-sm font-medium">{timeStamp}</h5>
         <div>{renderRichText(blogPost, options)}</div>
       </div>
     </>

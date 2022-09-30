@@ -2,23 +2,19 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Layout from "../components/layout";
+import { useState } from "react";
+import { Transition } from "@headlessui/react";
+import Nav from "../components/Nav";
 
 export default function destination({ data }) {
   const destinations = data.allContentfulDestinations.nodes;
   const featured = data.allContentfulFeatured.nodes;
   const destinationOfYear = data.contentfulDestinationsTopFeature;
-  // console.log(destinations);
 
   return (
     <>
       <Layout>
-        <section>
-          <div className="flex flex-row justify-between pt-16 pb-12">
-            <Link to="/">
-              <h1 className="text-4xl font-serif font-semibold">Travel Blog</h1>
-            </Link>
-          </div>
-        </section>
+        <Nav />
         <DestinationOfTheYear destinationOfYear={destinationOfYear} />
         <TopDestinations destinations={destinations} />
         <hr className="py-8" />

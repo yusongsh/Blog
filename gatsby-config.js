@@ -19,6 +19,7 @@ module.exports = {
   siteMetadata: {
     title: `BlogPage`,
     siteUrl: `https://www.yourdomain.tld`,
+    description: `Blog Website Designed and Developed By Yusong Shi`,
   },
   plugins: [
     {
