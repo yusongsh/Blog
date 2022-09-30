@@ -2,8 +2,6 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Layout from "../components/layout";
-import { useState } from "react";
-import { Transition } from "@headlessui/react";
 import Nav from "../components/Nav";
 
 export default function destination({ data }) {
@@ -27,17 +25,17 @@ export default function destination({ data }) {
 const DestinationOfTheYear = ({ destinationOfYear }) => {
   return (
     <>
-      <div className="flex flex-col items-center pb-16">
+      <div className="flex flex-col items-start md:items-center mb-24 md:mb-16 w-full ">
         <img
           src={destinationOfYear.previewPhoto.url}
           alt={destinationOfYear.title}
-          className="w-full"
+          // className="w-full"
         />
         <h2 className="pt-8 text-2xl font-medium">{destinationOfYear.title}</h2>
-        <h5 className="text-xs font-semibold pt-2 pb-8">
+        <h5 className=" text-left text-xs font-semibold pt-2 pb-8">
           {destinationOfYear.timeStamp}
         </h5>
-        <div className="px-12 lg:px-24 font-light leading-6 text-center">
+        <div className="px-0 lg:px-24 font-light leading-6 text-left md:text-center">
           {renderRichText(destinationOfYear.intro)}
         </div>
       </div>
@@ -48,7 +46,7 @@ const DestinationOfTheYear = ({ destinationOfYear }) => {
 const TopDestinations = ({ destinations }) => {
   return (
     <>
-      <div className="mb-32 flex flex-col items-center ">
+      <div className="mb-32 flex flex-col items-center w-full">
         <div className="font-serif text-2xl py-16 font-semibold">
           Top Destinations
         </div>
@@ -77,12 +75,12 @@ const TopDestinations = ({ destinations }) => {
 const FeaturedHorizontal = ({ featured }) => {
   return (
     <>
-      <div className="flex flex-col mb-32">
+      <div className="flex flex-col mb-32 w-full">
         <h2 className="font-serif text-2xl font-semibold pb-12">Featured</h2>
-        <div className="flex flex-row gap-16 w-full h-full">
+        <div className="flex flex-col md:flex-row gap-16 w-full h-full">
           {featured.map((feature, idx) => {
             return (
-              <div key={idx} className="pb-12 w-1/3 h-auto">
+              <div key={idx} className="pb-6 md:pb-12 w-full md:w-1/3 h-auto">
                 <Link to={`/${feature.slug}`}>
                   <img
                     src={feature.previewPhoto.url}

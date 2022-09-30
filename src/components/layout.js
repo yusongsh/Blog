@@ -12,7 +12,7 @@ import Footer from "./Footer";
 export default function Layout({ pageTitle, children, homeDestination }) {
   return (
     <>
-      <div className="px-4 md:px-0 flex flex-col bg-cream text-main">
+      <div className="px-4 md:px-0 flex flex-col bg-cream text-main w-full">
         <div className="grid gird-cols-6 md:grid-cols-8">
           <Nav />
           <div className="col-span-6 h-full pb-32 ">
